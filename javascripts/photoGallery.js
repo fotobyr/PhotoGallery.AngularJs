@@ -3,19 +3,19 @@ var photoGalleryApp = angular.module('galleryApp', ['photoGalleryService', 'ngRo
 photoGalleryApp.config(function($routeProvider, $locationProvider){
     $locationProvider.html5Mode(false);
 	$routeProvider
-		.when('/', {controller: galleryCtrl, templateUrl: '/html/photos.html'})
-        .when('/photo/upload', { templateUrl: '/html/photo/upload.html' })
-		.when('/photo/:photoId', {controller: photoDetailsCtrl, templateUrl: '/html/photo/details.html'})
-        .when('/awarded', { controller: awardedCtrl, templateUrl: '/html/photo/awarded.html' })
+		.when('/', {controller: galleryCtrl, templateUrl: '/ui/html/photos.html'})
+        .when('/photo/upload', { templateUrl: '/ui/html/photo/upload.html' })
+		.when('/photo/:photoId', {controller: photoDetailsCtrl, templateUrl: 'ui/html/photo/details.html'})
+        .when('/awarded', { controller: awardedCtrl, templateUrl: '/ui/html/photo/awarded.html' })
 
-        .when('/admin', { templateUrl: '/html/admin/admin.html' })
-        .when('/admin/users', { controller: adminUsersCtrl, templateUrl: '/html/admin/users.html'})
+        .when('/admin', { templateUrl: '/ui/html/admin/admin.html' })
+        .when('/admin/users', { controller: adminUsersCtrl, templateUrl: '/ui/html/admin/users.html'})
 
-        .when('/login', { controller: userLoginCtrl, templateUrl: '/html/user/login.html'})
-        .when('/register', { controller: userRegisterCtrl, templateUrl: '/html/user/register.html'})
+        .when('/login', { controller: userLoginCtrl, templateUrl: '/ui/html/user/login.html'})
+        .when('/register', { controller: userRegisterCtrl, templateUrl: '/ui/html/user/register.html'})
 
-        .when('/about', { templateUrl: '/html/about.html' })
-        .when('/feedback', { controller: feedbackCtrl, templateUrl: '/html/feedback.html' })
+        .when('/about', { templateUrl: '/ui/html/about.html' })
+        .when('/feedback', { controller: feedbackCtrl, templateUrl: '/ui/html/feedback.html' })
 
 		.otherwise({redirectTo: '/'});
 });
