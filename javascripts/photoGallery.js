@@ -148,3 +148,21 @@ photoGalleryApp.directive('vote', function(){
                     '</div>'
     }
 });
+
+photoGalleryApp.directive('setImageTitle', function(){
+    return {
+        replace: false,
+        restrict: 'A',
+        link: function(scope, element, attrs){
+            element.bind('change', function(){
+                var titleInput = $(attrs.setImageTitle);
+
+                if (titleInput.val().length == 0)
+                {
+                    var fileInputValueArray = element.val().replace('\\', '/').split('\\');
+                    titleInput.val(fileInputValueArray.length > 1 ? fileInputValueArray[fileInputValueArray.length - 1] : fileInputValueArray[0]);
+                }
+            })
+        }
+    }
+});
