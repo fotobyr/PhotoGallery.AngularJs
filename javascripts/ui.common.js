@@ -6,6 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 
+//TODO: convert to directive
 function SetImageTitle(){
     var titleInput = $('#fileName');
 
