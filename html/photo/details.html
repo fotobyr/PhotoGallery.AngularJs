@@ -10,7 +10,7 @@
                 <dt>Текущий рейтинг</dt>
                 <dd>{{ photo.currentRating.totalVote || 0 }}</dd>
                 <dt>Общий рейтинг</dt>
-                <dd>0</dd>
+                <dd>{{ photo.totalRating || 0 }}</dd>
                 <dt>Добавлено</dt>
                 <dd>{{ photo.created | date:'dd MMMM yyyy' }}</dd>
                 <dt>{{ photo.yourVote == 0 ? 'Проголосовать' : 'Ваш голос'}}</dt>
