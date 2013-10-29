@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app='galleryApp'>
+    <head>
+        <title>Simple photo gallery</title>
+        <link href="/stylesheets/style.css" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+        <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.min.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-2.0.3.min.js" type="text/javascript"></script>
+        <script src="http://code.angularjs.org/1.2.0rc1/angular.js" type="text/javascript"></script>
+        <script src="http://code.angularjs.org/1.2.0rc1/angular-route.min.js" type="text/javascript"></script>
+        <script src="http://code.angularjs.org/1.2.0rc1/angular-resource.min.js" type="text/javascript"></script>
+        <script src="/ui/javascripts/photoGallery.js" type="text/javascript"></script>
+        <script src="/ui/javascripts/photoGalleryService.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/1.3.1/js/toastr.min.js" type="text/javascript"></script>
+        <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-default" ng-controller="mainMenuCtrl" role="navigation">
+                <div class="navbar-header">
+                    <button  class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">photo gallery</a>
+                </div>
+                <div class="collapse navbar-collapse navbar-ex1-collapse">
+                    <ul class="nav navbar-nav">
+                        <li ng-class="{active: isActive('/')}"><a href='#'> Главная</a></li>
+                        <li ng-class="{active: isActive('/awarded')}"><a href='#/awarded'> Призеры</a></li>
+                        <li ng-class="{active: isActive('photo/upload')}"><a href='#/photo/upload'> Загрузить</a></li>
+                        <li ng-class="{active: isActive('/feedback')}"><a href='#/feedback'> Отзывы</a></li>
+                        <li ng-class="{active: isActive('/about')}"><a href='#/about'> О нас</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li ng-class="{active: isActive('login')}" ng-show="config.isGuest"><a href='#/login'> Войти</a></li>
+                        <li ng-class="{active: isActive('register')}" ng-show="config.isGuest"><a href='#/register'> Регистрация</a></li>
+                        <li ng-show="!config.isGuest"><a><strong>{{ config.userName }}</strong></a></li>
+                        <li ng-show="!config.isGuest"><a href="#" ng-click='logOut()' ng-bind='logoutText'></a></li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="container" ng-view></div>
+            <hr />
+            <footer>
+                <p>© Simple photo gallery 2013</p>
+            </footer>
+        </div>
+    </body>
+</html>
